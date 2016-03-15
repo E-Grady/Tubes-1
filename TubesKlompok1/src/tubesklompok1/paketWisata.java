@@ -19,11 +19,11 @@ public class paketWisata {
         this.harga=harga;
     }
     
-    public addTempatWisata(tempatWisata w){
+    public void addTempatWisata(tempatWisata w){
     
     }
     
-    public removeTempatWisata(tempatWisata w){
+    public void removeTempatWisata(tempatWisata w){
     
     }
     
