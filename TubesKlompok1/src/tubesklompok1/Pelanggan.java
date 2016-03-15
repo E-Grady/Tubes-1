@@ -10,5 +10,20 @@ package tubesklompok1;
  * @author Pavilion
  */
 public class Pelanggan {
+    private long id_pel;
+    
+    public Pelanggan(String nama,String jenkel,String alamat,int umur,
+            long no_hp,long_id_pel){
+        super(nama,jenkel,alamat,umur,no_hp);
+        this.id_pel=id_pel;
+    }
+    
+    public void setId_pel(long x){
+        id_pel=x;
+    }
+    
+    public long getId_pel(){
+        return id_pel;
+    }
     
 }
