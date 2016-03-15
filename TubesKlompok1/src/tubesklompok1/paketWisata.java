@@ -10,5 +10,23 @@ package tubesklompok1;
  * @author Pavilion
  */
 public class paketWisata {
+    private tempatWisata[] daftarTujuanWisata;
+    private String kodePaket;
+    private double harga;
     
+    public paketWisata(String kodePaket,double harga){
+        this.kodePaket=kodePaket;
+        this.harga=harga;
+    }
+    
+    public addTempatWisata(tempatWisata w){
+    
+    }
+    
+    public removeTempatWisata(tempatWisata w){
+    
+    }
+    
+    
+
 }
