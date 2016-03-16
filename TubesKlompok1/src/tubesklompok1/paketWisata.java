@@ -34,14 +34,20 @@ public class paketWisata {
         return harga;
     }
     
-    private int idxpkt=0;
+    private static int idxpkt=0;
     public void addTempatWisata(tempatWisata w){
         this.daftarTujuanWisata[idxpkt]=w;
         this.idxpkt++;
     }
     
     public void removeTempatWisata(tempatWisata w){
-    
+        int i=0;
+        while(daftarTujuanWisata[i]!=w){
+            i++;
+            if(i==5&&daftarTujuanWisata[i]!=w){
+                System.out.println("Data not found!");
+            }
+        }
     }
     
     
