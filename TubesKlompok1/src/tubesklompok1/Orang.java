@@ -10,18 +10,6 @@ package tubesklompok1;
  *
  * @author JalluWMT
  */
-public class Orang {
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package tubesklompok1;
-
-/**
- *
- * @author JalluWMT
- */
 public abstract class Orang {
     private String nama;
     private String jenkel;
@@ -29,7 +17,7 @@ public abstract class Orang {
     private int umur;
     private long no_hp;
     
-    public void Orang (String nama, String jenkel,String alamat, int umur,long no_hp){
+    public Orang (String nama, String jenkel,String alamat, int umur,long no_hp){
      this.nama = nama;
      this.jenkel = jenkel;
      this.alamat = alamat;
@@ -51,6 +39,4 @@ public abstract class Orang {
     public long getNo_hp(){
         return this.no_hp;
     }
-}
-
 }
