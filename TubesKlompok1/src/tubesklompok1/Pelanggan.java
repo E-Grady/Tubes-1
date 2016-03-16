@@ -9,11 +9,10 @@ package tubesklompok1;
  *
  * @author Pavilion
  */
-public class Pelanggan {
+public class Pelanggan extends Orang {
     private long id_pel;
     
-    public Pelanggan(String nama,String jenkel,String alamat,int umur,
-            long no_hp,long_id_pel){
+    public Pelanggan(String nama,String jenkel,String alamat,int umur,long no_hp,long id_pel){
         super(nama,jenkel,alamat,umur,no_hp);
         this.id_pel=id_pel;
     }
