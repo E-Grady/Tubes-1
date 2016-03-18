@@ -5,6 +5,8 @@
  */
 package tubesklompok1;
 
+import tubesklompok1.Orang;
+
 /**
  *
  * @author UKI

@@ -37,22 +37,24 @@ public class paketWisata {
     
     private static int idxpkt=0;
     public void addTempatWisata(tempatWisata w){
-        for(int a=0;a<daftarTujuanWisata.length;a++){
-            if(daftarTujuanWisata[a]==null){
                 this.daftarTujuanWisata[idxpkt]=w;
                 this.idxpkt++;
                 this.jumlahWisata++;
-            }
-        }
+            
+        
     }
     
     public void removeTempatWisata(tempatWisata w){
-        for(int i=0;i<daftarTujuanWisata.length;i++){
-            if(daftarTujuanWisata[i].getNamaWisata()==w.getNamaWisata()){
+        for(int i=0;i<=daftarTujuanWisata.length;i++){
+            if(w.getNamaWisata()==this.daftarTujuanWisata[i].getNamaWisata()){
                 daftarTujuanWisata[i]=null;
                 jumlahWisata--;
             }
         }
+    }
+    
+    public tempatWisata getTempatWisata(int x){
+        return daftarTujuanWisata[x];
     }
     
 }

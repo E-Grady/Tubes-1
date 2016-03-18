@@ -15,17 +15,27 @@ public class TubesKlompok1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Petugas pet = new Petugas("Agus","L","Kartika 4",20,"08774878528",1234,"Staff");
-        Pelanggan pel = new Pelanggan("Budi","L","Kartika 1",38,"08783988841","B01");
+        Pelanggan p1=new Pelanggan("joko","Laki","Bandung",12,"85745987889","Pel001");
+        Pelanggan p2=new Pelanggan("joki","cabe","Bandung",9,"85734587889","Pel002");
+        Pelanggan p3=new Pelanggan("susanti","cabe","Bandung",10,"85886987889","Pel003");
         
-        Perjalanan per = new Perjalanan("A01",40);
-        per.addPelanggan(pel);
         
-        tempatWisata tw = new tempatWisata("Batu Akik","Jonggol","08777777777","Yudi");
+        tempatWisata ancol=new tempatWisata("Anchore","Jakarteh","85475845875","Agus");
+        tempatWisata monas=new tempatWisata("Moon Hass","Jakarteh","854746645875","Tejo");
+        tempatWisata TMII=new tempatWisata("Taman","Jakarteh","85475665875","Joni");
         
-        paketWisata pw = new paketWisata("P01",500000);
-        pw.addTempatWisata(tw);
+        paketWisata paketJkt= new paketWisata("jkt48",1500000);
+        
+        paketJkt.addTempatWisata(ancol);
+        paketJkt.addTempatWisata(monas);
+        paketJkt.addTempatWisata(TMII);
+        
+        //paketJkt.removeTempatWisata(ancol);
+        
+        System.out.println(paketJkt.getTempatWisata(0).getNamaWisata());
+        System.out.println(paketJkt.getTempatWisata(1).getNamaWisata());
+        System.out.println(paketJkt.getTempatWisata(2).getNamaWisata());
+        
     }
     
 }
