@@ -43,7 +43,21 @@ public class TubesKlompok1 {
                 i++;
             }
             
-        }    
+        }
+        
+        Perjalanan jalan1=new Perjalanan("per001",5);
+        
+        jalan1.addPelanggan(p1);
+        jalan1.addPelanggan(p2);
+        jalan1.addPelanggan(p3);
+        
+        jalan1.setPaket(paketJkt);
+        
+        System.out.println(jalan1.getPelanggan(0).getNama());
+        System.out.println(jalan1.getPelanggan(1).getNama());
+        System.out.println(jalan1.getPelanggan(2).getNama());
+        System.out.println("Paket :");
+        System.out.println(jalan1.getPaket().getKodePaket());
         
     }
     
