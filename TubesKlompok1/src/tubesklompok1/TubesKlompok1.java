@@ -22,7 +22,7 @@ public class TubesKlompok1 {
         
         tempatWisata ancol=new tempatWisata("Anchore","Jakarteh","85475845875","Agus");
         tempatWisata monas=new tempatWisata("Moon Hass","Jakarteh","854746645875","Tejo");
-        tempatWisata TMII=new tempatWisata("Taman","Jakarteh","85475665875","Joni");
+        tempatWisata TMII=new tempatWisata("Taman Mini","Jakarteh","85475665875","Joni");
         
         paketWisata paketJkt= new paketWisata("jkt48",1500000);
         
@@ -30,11 +30,20 @@ public class TubesKlompok1 {
         paketJkt.addTempatWisata(monas);
         paketJkt.addTempatWisata(TMII);
         
-        //paketJkt.removeTempatWisata(ancol);
-        
-        System.out.println(paketJkt.getTempatWisata(0).getNamaWisata());
-        System.out.println(paketJkt.getTempatWisata(1).getNamaWisata());
-        System.out.println(paketJkt.getTempatWisata(2).getNamaWisata());
+       paketJkt.removeTempatWisata(monas);
+       System.out.println(paketJkt.getJumlahWisata());
+       paketJkt.addTempatWisata(ancol);
+       paketJkt.addTempatWisata(monas);
+        int i = 0;
+        while(i<paketJkt.getJumlahWisata()){
+           if(paketJkt.getTempatWisata(i)==null){
+                i++;
+            }else{
+                System.out.println(paketJkt.getTempatWisata(i).getNamaWisata());
+                i++;
+            }
+            
+        }    
         
     }
     
