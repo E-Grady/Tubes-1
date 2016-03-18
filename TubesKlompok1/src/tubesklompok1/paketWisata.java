@@ -13,6 +13,7 @@ public class paketWisata {
     private tempatWisata[] daftarTujuanWisata = new tempatWisata[5];
     private String kodePaket;
     private double harga;
+    private int jumlahWisata;
     
     public paketWisata(String kodePaket,double harga){
         this.kodePaket=kodePaket;
@@ -36,20 +37,22 @@ public class paketWisata {
     
     private static int idxpkt=0;
     public void addTempatWisata(tempatWisata w){
-        this.daftarTujuanWisata[idxpkt]=w;
-        this.idxpkt++;
-    }
-    
-    public void removeTempatWisata(tempatWisata w){
-        int i=0;
-        while(daftarTujuanWisata[i]!=w){
-            i++;
-            if(i==5&&daftarTujuanWisata[i]!=w){
-                System.out.println("Data not found!");
+        for(int a=0;a<daftarTujuanWisata.length;a++){
+            if(daftarTujuanWisata[a]==null){
+                this.daftarTujuanWisata[idxpkt]=w;
+                this.idxpkt++;
+                this.jumlahWisata++;
             }
         }
     }
     
+    public void removeTempatWisata(tempatWisata w){
+        for(int i=0;i<daftarTujuanWisata.length;i++){
+            if(daftarTujuanWisata[i].getNamaWisata()==w.getNamaWisata()){
+                daftarTujuanWisata[i]=null;
+                jumlahWisata--;
+            }
+        }
+    }
     
-
 }

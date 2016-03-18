@@ -16,6 +16,16 @@ public class TubesKlompok1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Petugas pet = new Petugas("Agus","L","Kartika 4",20,"08774878528",1234,"Staff");
+        Pelanggan pel = new Pelanggan("Budi","L","Kartika 1",38,"08783988841","B01");
+        
+        Perjalanan per = new Perjalanan("A01",40);
+        per.addPelanggan(pel);
+        
+        tempatWisata tw = new tempatWisata("Batu Akik","Jonggol","08777777777","Yudi");
+        
+        paketWisata pw = new paketWisata("P01",500000);
+        pw.addTempatWisata(tw);
     }
     
 }
