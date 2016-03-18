@@ -31,6 +31,9 @@ public class Perjalanan {
     public void setPaket(paketWisata p){
         paket = p;
     }
+    public void removePaket(){
+        paket = null;
+    }
     public void setKodeperjalanan(String kode_perjalanan){
         this.kode_perjalanan = kode_perjalanan;
     }
