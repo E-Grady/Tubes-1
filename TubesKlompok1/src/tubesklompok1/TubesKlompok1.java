@@ -59,6 +59,13 @@ public class TubesKlompok1 {
         System.out.println("Paket :");
         System.out.println(jalan1.getPaket().getKodePaket());
         
+        jalan1.removePaket();
+        System.out.println("Paket :");
+        if(jalan1.getPaket()!=null){
+            System.out.println(jalan1.getPaket().getKodePaket());
+        }else{
+            System.out.println("Kosong");
+        }
     }
     
 }
