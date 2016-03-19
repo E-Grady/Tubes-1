@@ -22,7 +22,7 @@ public class TubesKlompok1 {
         
         tempatWisata ancol=new tempatWisata("Anchore","Jakarteh","85475845875","Agus");
         tempatWisata monas=new tempatWisata("Moon Hass","Jakarteh","854746645875","Tejo");
-        tempatWisata TMII=new tempatWisata("Taman","Jakarteh","85475665875","Joni");
+        tempatWisata TMII=new tempatWisata("Taman Mini","Jakarteh","85475665875","Joni");
         
         paketWisata paketJkt= new paketWisata("jkt48",1500000);
         
@@ -30,11 +30,34 @@ public class TubesKlompok1 {
         paketJkt.addTempatWisata(monas);
         paketJkt.addTempatWisata(TMII);
         
-        //paketJkt.removeTempatWisata(ancol);
+       paketJkt.removeTempatWisata(monas);
+       System.out.println(paketJkt.getJumlahWisata());
+       paketJkt.addTempatWisata(ancol);
+       paketJkt.addTempatWisata(monas);
+        int i = 0;
+        while(i<paketJkt.getJumlahWisata()){
+           if(paketJkt.getTempatWisata(i)==null){
+                i++;
+            }else{
+                System.out.println(paketJkt.getTempatWisata(i).getNamaWisata());
+                i++;
+            }
+            
+        }
         
-        System.out.println(paketJkt.getTempatWisata(0).getNamaWisata());
-        System.out.println(paketJkt.getTempatWisata(1).getNamaWisata());
-        System.out.println(paketJkt.getTempatWisata(2).getNamaWisata());
+        Perjalanan jalan1=new Perjalanan("per001",5);
+        
+        jalan1.addPelanggan(p1);
+        jalan1.addPelanggan(p2);
+        jalan1.addPelanggan(p3);
+        
+        jalan1.setPaket(paketJkt);
+        
+        System.out.println(jalan1.getPelanggan(0).getNama());
+        System.out.println(jalan1.getPelanggan(1).getNama());
+        System.out.println(jalan1.getPelanggan(2).getNama());
+        System.out.println("Paket :");
+        System.out.println(jalan1.getPaket().getKodePaket());
         
     }
     

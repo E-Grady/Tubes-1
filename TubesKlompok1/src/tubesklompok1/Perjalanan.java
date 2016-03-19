@@ -31,6 +31,9 @@ public class Perjalanan {
     public void setPaket(paketWisata p){
         paket = p;
     }
+    public paketWisata getPaket(){
+        return paket;
+    }
     public void removePaket(){
         paket = null;
     }

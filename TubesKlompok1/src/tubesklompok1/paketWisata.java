@@ -13,7 +13,7 @@ public class paketWisata {
     private tempatWisata[] daftarTujuanWisata = new tempatWisata[5];
     private String kodePaket;
     private double harga;
-    private int jumlahWisata;
+    private int jumlahWisata=0;//<-- maksutnya index terakhir yg ada isinya(males ganti nama)
     
     public paketWisata(String kodePaket,double harga){
         this.kodePaket=kodePaket;
@@ -38,24 +38,36 @@ public class paketWisata {
     private static int idxpkt=0;
     public void addTempatWisata(tempatWisata w){
         for(int a=0;a<daftarTujuanWisata.length;a++){
-            this.daftarTujuanWisata[a]=w;
-            this.idxpkt++;
-            this.jumlahWisata++;
-            break;
+            if(daftarTujuanWisata[a]==null){
+                this.daftarTujuanWisata[a]=w;
+                jumlahWisata++;
+                break;
+            }
+            
         }
     }
     
     public void removeTempatWisata(tempatWisata w){
         for(int i=0;i<=daftarTujuanWisata.length;i++){
-            if(w.getNamaWisata()==this.daftarTujuanWisata[i].getNamaWisata()){
+            if(w.getNamaWisata()==daftarTujuanWisata[i].getNamaWisata()){
                 daftarTujuanWisata[i]=null;
-                jumlahWisata--;
+                //jumlahWisata--;
+                break;
             }
         }
+        //for(int j=0;j<daftarTujuanWisata.length;j++){
+         //   if(daftarTujuanWisata[j]==null){
+         //       daftarTujuanWisata[j] = daftarTujuanWisata[j+1];
+                
+         //   }
+        //    break;
+      //  }
     }
     
     public tempatWisata getTempatWisata(int x){
         return daftarTujuanWisata[x];
     }
-    
+    public int getJumlahWisata(){
+        return jumlahWisata;
+    }
 }
