@@ -37,11 +37,12 @@ public class paketWisata {
     
     private static int idxpkt=0;
     public void addTempatWisata(tempatWisata w){
-                this.daftarTujuanWisata[idxpkt]=w;
-                this.idxpkt++;
-                this.jumlahWisata++;
-            
-        
+        for(int a=0;a<daftarTujuanWisata.length;a++){
+            this.daftarTujuanWisata[a]=w;
+            this.idxpkt++;
+            this.jumlahWisata++;
+            break;
+        }
     }
     
     public void removeTempatWisata(tempatWisata w){
