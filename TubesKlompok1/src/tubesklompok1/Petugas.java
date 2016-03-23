@@ -15,6 +15,7 @@ public class Petugas extends Orang {
     private long id;
     private String jabatan;
     
+    public Petugas(){}  
     public Petugas(String nama, String jenkel, String alamat, int umur, String no_hp,long id, String jabatan){
         super(nama,jenkel,alamat,umur,no_hp);
         this.id = id;

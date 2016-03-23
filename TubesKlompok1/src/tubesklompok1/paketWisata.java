@@ -15,6 +15,7 @@ public class paketWisata {
     private double harga;
     private int jumlahWisata=0;//<-- maksutnya index terakhir yg ada isinya(males ganti nama)
     
+    public paketWisata(){} 
     public paketWisata(String kodePaket,double harga){
         this.kodePaket=kodePaket;
         this.harga=harga;
@@ -55,13 +56,6 @@ public class paketWisata {
                 break;
             }
         }
-        //for(int j=0;j<daftarTujuanWisata.length;j++){
-         //   if(daftarTujuanWisata[j]==null){
-         //       daftarTujuanWisata[j] = daftarTujuanWisata[j+1];
-                
-         //   }
-        //    break;
-      //  }
     }
     
     public tempatWisata getTempatWisata(int x){
@@ -69,5 +63,13 @@ public class paketWisata {
     }
     public int getJumlahWisata(){
         return jumlahWisata;
+    }
+    public void printPaket(Perjalanan pl){
+        if(pl != null){
+            System.out.println("Paket");
+            System.out.println(pl.getPaket().getKodePaket());
+        }else{
+            System.out.println("Kosong");
+        }
     }
 }

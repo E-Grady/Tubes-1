@@ -16,6 +16,7 @@ public class Perjalanan {
     private String tgl_perjalanan;
     private int maxPelanggan;
     
+    public Perjalanan(){}
     public Perjalanan(String kode_perjalanan,int n){
         this.kode_perjalanan = kode_perjalanan;
         pelanggan = new Pelanggan[n];
