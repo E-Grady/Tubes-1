@@ -12,12 +12,11 @@ import java.util.*;
 public class TubesKlompok1 {
     Scanner input=new Scanner(System.in);
     /**
-     * @param args the command line arguments
      */
-    public void main() {
-        
-        
-        Menu1:  {    //Menu Utama 
+    
+    
+    public void main() {  
+          //Menu Utama 
         System.out.println("Menu :");
         System.out.println("1.Petugas");
         System.out.println("2.Pelanggan");
@@ -29,30 +28,38 @@ public class TubesKlompok1 {
         
         switch(menu1){
             case 1:
-                    MenuPtg:
-                    System.out.println("Petugas :");
-                    System.out.println("1.Tambah");
-                    System.out.println("2.Hapus");
-                    System.out.println("3.Tampilkan");
-                    System.out.println("4.Cari");
-                    System.out.println("5.Kembali ke menu awal");
-                    int menuPtg=input.nextInt();
+                menuPtg();
+                break;
+            case 2:
+                menuPlg();
+                break;
+            case 3:
+                menuTW();
+                break;
+            case 4:
+                menuPW();
+                break;
+            case 5:
+                menuPer();
+                break;
+            default:
+                break;
+        }
+    }
         
-                    switch(menuPtg){
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        case 4:
-                            break;
-                        case 5:
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+        
+    public void menuPtg(){    
+        System.out.println("Petugas :");
+        System.out.println("1.Tambah");
+        System.out.println("2.Hapus");
+        System.out.println("3.Tampilkan");
+        System.out.println("4.Cari");
+        System.out.println("5.Kembali ke menu awal");
+        int menuPtg=input.nextInt();
+        
+        switch(menuPtg){
+            case 1:
+                break;
             case 2:
                 break;
             case 3:
@@ -62,13 +69,12 @@ public class TubesKlompok1 {
             case 5:
                 break;
             default:
-                System.exit(menu1);
+                break;
         }
-        }
+    }    
         
         
-        
-        MenuPlg:
+    public void menuPlg(){    
         System.out.println("Pelanggan :");
         System.out.println("1.Tambah");
         System.out.println("2.Hapus");
@@ -91,9 +97,10 @@ public class TubesKlompok1 {
             default:
                 break;
         }
+    }
          
          
-          MenuTW:
+    public void menuTW(){    
         System.out.println("Tempat Wisata :");
         System.out.println("1.Tambah");
         System.out.println("2.Hapus");
@@ -116,10 +123,11 @@ public class TubesKlompok1 {
             default:
                 break;
         }
+    }     
          
          
-         MenuPW:    //PaketWIsata
-        System.out.println("Petugas :");
+    public void menuPW(){      //PaketWIsata
+        System.out.println("Paket WIsata :");
         System.out.println("1.Tambah");
         System.out.println("2.Hapus");
         System.out.println("3.Tampilkan");
@@ -141,10 +149,10 @@ public class TubesKlompok1 {
             default:
                 break;
         }
+}
          
          
-         
-        MenuPer:    //Perjalanan
+    public void menuPer(){      //Perjalanan
         System.out.println("Perjalanan :");
         System.out.println("1.Tambah");
         System.out.println("2.Hapus");
@@ -167,9 +175,9 @@ public class TubesKlompok1 {
             default:
                 break;
         }
+    }    
         
-        
-        Pelanggan p1=new Pelanggan("joko","Laki","Bandung",12,"85745987889","Pel001");
+   /*     Pelanggan p1=new Pelanggan("joko","Laki","Bandung",12,"85745987889","Pel001");
         Pelanggan p2=new Pelanggan("joki","cabe","Bandung",9,"85734587889","Pel002");
         Pelanggan p3=new Pelanggan("susanti","cabe","Bandung",10,"85886987889","Pel003");
         
@@ -207,6 +215,6 @@ public class TubesKlompok1 {
         }else{
             System.out.println("Kosong");
         }
-    }
+    }*/
     
 }
