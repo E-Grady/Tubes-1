@@ -16,10 +16,14 @@ import java.util.logging.Logger;
  */
 public class TubesKlompok1 {
     Scanner input=new Scanner(System.in);
-    static int a = 0;
-    static int b = 0;
+    static int a = 0; //punya petugas
+    static int b = 0; //punya pelanggan
+    static int c = 0; // punya tempat wisata
+    static int d = 0; // punya paket wisata
     Pelanggan pel[] = new Pelanggan[40];
     Petugas pet[] = new Petugas[2];
+    tempatWisata tw[]= new tempatWisata[10];
+    paketWisata pw[]=new paketWisata[10];
     public long searchIdPetugas(long id){
         for(int i=0;i<pet.length;i++){
             if(pet[i].getId() == id){
@@ -28,6 +32,254 @@ public class TubesKlompok1 {
         }
         return 0;
     }
+    
+    public void hapusPtg(){
+         System.out.print("ID : ");
+                long id2=input.nextByte();
+                for(int i=0;i<pet.length;i++){
+                    if(pet[i].getId() == id2){
+                        pet[i] = null;
+                    }
+                }
+                System.out.println("Hapus Berhasil!");
+    }
+    public void hapusPlg(){
+        System.out.print("ID Pelanggan : ");
+        String idpel1=input.next();
+        for(int i=0;i<pel.length;i++){
+            if(pel[i].getId_pel().equals(idpel1)){
+                pel[i] = null;
+            }
+        }
+        System.out.println("Hapus Berhasil!");
+    }
+    public void hapusTw(){
+        System.out.println("Nama Wisata : ");
+        String nm=input.next();
+        for (int i = 0; i < tw.length; i++) {
+            if(tw[i].getNamaWisata().equals(nm)){
+                tw[i]=null;
+            }
+            
+        }
+        System.out.println("Hapus Berhasil");
+        
+    }
+    public void hapusPw(){
+        System.out.println("Kode Paket : ");
+        String kd=input.next();
+        for (int i = 0; i < pw.length; i++) {
+            if(pw[i].getKodePaket().equals(kd)){
+                pw[1]=null;
+            }
+            
+        }
+        System.out.println("Hapus Berhasil");
+    }
+    
+    public void tambahPtg(){
+        System.out.println("=== Tambah Petugas ===");
+                System.out.print("Nama : ");
+                String nm=input.next();
+                System.out.print("Alamat : ");
+                String alm=input.next();
+                System.out.print("Umur : ");
+                int umur=input.nextByte();
+                System.out.print("ID : ");
+                long id=input.nextByte();
+                System.out.print("Nomor HP : ");
+                String hp=input.next();
+                System.out.print("Jenis Kelamin : ");
+                String jenkel=input.next();
+                System.out.print("Jabatan : " );
+                String jbt=input.next();
+                System.out.println("Tambah Petugas berhasil");
+                pet[a] = new Petugas();
+                try{
+                    pet[a].setNama(nm);
+                    pet[a].setUmur(umur);
+                    pet[a].setAlamat(alm);
+                    pet[a].setId(id);
+                    pet[a].setNo_hp(hp);
+                    pet[a].setJenkel(jenkel);
+                    pet[a].setJabatan(jbt);
+                    a++;
+                    menuPtg();
+                }catch (Exception e){
+                    System.out.println("Error "+e);
+                    menuPtg();
+                }
+    }
+    public void tambahPlg(){
+        System.out.println("=== Tambah Pelanggan ===");
+        System.out.println("Nama: ");
+        String nmpel = input.next();
+        System.out.print("Alamat : "); 
+        String almpel = input.next();
+        System.out.print("Umur : ");
+        int umurpel = input.nextByte();
+        System.out.print("ID Pelanggan : ");
+        String idpel = input.next();
+        System.out.print("Nomor HP : ");
+        String hppel = input.next();
+        System.out.print("Jenis Kelamin : ");
+        String jenkelpel = input.next();
+        pel[b] = new Pelanggan();
+        try{
+            pel[b].setNama(nmpel);
+            pel[b].setUmur(umurpel);
+            pel[b].setAlamat(almpel);
+            pel[b].setId_pel(idpel);
+            pel[b].setNo_hp(hppel);
+            pel[b].setJenkel(jenkelpel);
+            b++;
+            menuPlg();
+        }catch (Exception e){
+            System.out.println("Error "+e);
+            menuPlg();
+        }    
+    }
+    public void tambahTW(){
+        System.out.println("=== Tambah Tempat wisata ===");
+        System.out.println("Nama Tempat : ");
+        String namatw=input.next();
+        System.out.println("Alamat : ");
+        String almtw= input.next();
+        System.out.println("no Contact Person : ");
+        String nocp=input.next();
+        System.out.println("Nama Contact Person : ");
+        String nmcp=input.next();
+        tw[c]= new tempatWisata();
+        try {
+            tw[c].setNamaWisata(namatw);
+            tw[c].setAlamatWisata(almtw);
+            tw[c].setCp_wisata(nocp);
+            tw[c].setNama_cp(nmcp);
+            c++;
+            menuTW();
+        } catch (Exception e) {
+            System.out.println("Error "+e);
+            menuTW();
+        }
+        
+    }
+    public void tambahPw(){
+        System.out.println("=== Tambah Paket Wisata === ");
+        System.out.println("Kode Paket : ");
+        String kdpw=input.next(); 
+        System.out.println("Harga : ");
+        double hrg=input.nextDouble();
+        pw[d]=new paketWisata();
+        try {
+            pw[d].setKodePaket(kdpw);
+            pw[d].setHarga(hrg);
+            d++;
+            menuPW();                
+            
+        } catch (Exception e) {
+            System.out.println("Error "+e);
+            menuPW();
+        }
+    }
+    
+    public void tambahTwPw(){
+        System.out.println("Masukan Kode Paket Wisata :");
+        String id=input.next();
+        int x = 0;
+        
+        try {
+            while (x<pw.length){
+                if(pw[x].getKodePaket().equals(id)){
+                     
+                    System.out.println("Masukan Nama Tempat Wisata :");
+                    String nm=input.next();
+                    int i = 0;
+                    try {
+                        while(i<tw.length){
+                            if (tw[i].getNamaWisata().equals(nm)) {
+                                 pw[x].addTempatWisata(tw[i]);
+                                 break;
+                    
+                            }
+                            else i++;
+                        }
+                    } catch (Throwable e) {
+                         System.out.println("Kesalahan ! Data tidak ditemukan");
+                     }
+                    menuTW();
+                    break;              
+                } else x++;
+            }
+            
+        } catch (Exception e) {
+            System.out.println(""+e);
+        }
+        
+        
+    }
+    
+    public void searchIdPtg(){
+        System.out.print("ID : ");
+        long id1=input.nextByte();
+        int i=0;
+        try{while ( i<pet.length){
+            if(pet[i].getId()==id1){
+                System.out.println("Nama : "+pet[i].getNama());
+                System.out.println("Alamat : "+pet[i].getAlamat());
+                System.out.println("Umur : "+pet[i].getUmur());
+                System.out.println("ID : "+pet[i].getId());
+                System.out.println("Nomor HP : "+pet[i].getNo_hp());
+                System.out.println("Jenis Kelamin : "+pet[i].getJenkel());
+                System.out.println("Jabatan : "+pet[i].getJabatan());
+                break;
+                
+            }
+            else i++;
+        }}catch(Throwable e){
+            System.out.println("Kesalahan! Data tidak ditemukan");
+        }
+    }
+    public void searchIdPlg(){
+        System.out.print("ID : ");
+        String idpel=input.next();
+        int i=0;
+        try{while ( i<pel.length){
+            if(pel[i].getId_pel().equals(idpel)){
+                System.out.println("Nama : "+pel[i].getNama());
+                System.out.println("Alamat : "+pel[i].getAlamat());
+                System.out.println("Umur : "+pel[i].getUmur());
+                System.out.println("ID Pelanggan: "+pel[i].getId_pel());
+                System.out.println("Nomor HP : "+pel[i].getNo_hp());
+                System.out.println("Jenis Kelamin : "+pel[i].getJenkel());
+                break;
+                
+            }
+            else i++;
+        }}catch(Throwable e){
+            System.out.println("Kesalahan! Data tidak ditemukan");
+        }
+    }
+    public void searchTw(){
+        System.out.println("Nama Wisata : ");
+        String nm=input.next();
+        int i=0;
+        try {
+            while(i<tw.length){
+                if (tw[i].getNamaWisata().equals(nm)) {
+                    System.out.println("Nama Tempat : "+tw[i].getNamaWisata());
+                    System.out.println("Alamat : "+tw[i].getAlamatWisata());
+                    System.out.println("no Contact : "+tw[i].getCp_wisata());
+                    System.out.println("Nama CP : "+tw[i].getNama_cp());
+                    break;
+                    
+                }
+                else i++;
+            }
+        } catch (Throwable e) {
+            System.out.println("Kesalahan ! Data tidak ditemukan");
+        }
+    }
+    
     public String searchIdPelanggan(String id_pel){
         for(int i=0;i<pel.length;i++){
             if(pel[i].getId_pel() == id_pel){
@@ -36,10 +288,74 @@ public class TubesKlompok1 {
         }
         return " ";
     }
-    /**
-     */
     
-    
+    public void tampilPtg(){
+        int i = 0;
+        while(i<pet.length){
+            if(pet[i] != null){
+                System.out.println("Nama : "+pet[i].getNama());
+                System.out.println("Alamat : "+pet[i].getAlamat());
+                System.out.println("Umur : "+pet[i].getUmur());
+                System.out.println("ID : "+pet[i].getId());
+                System.out.println("Nomor HP : "+pet[i].getNo_hp());
+                System.out.println("Jenis Kelamin : "+pet[i].getJenkel());
+                System.out.println("Jabatan : "+pet[i].getJabatan());
+                i++;
+                        
+            }else{
+                i++;
+             }
+            }
+    }
+    public void tampilPlg(){
+        int i = 0;
+        while(i<pel.length){
+            if(pel[i] != null){
+                System.out.println("Nama : "+pel[i].getNama());
+                System.out.println("Alamat : "+pel[i].getAlamat());
+                System.out.println("Umur : "+pel[i].getUmur());
+                System.out.println("ID Pelanggan: "+pel[i].getId_pel());
+                System.out.println("Nomor HP : "+pel[i].getNo_hp());
+                System.out.println("Jenis Kelamin : "+pel[i].getJenkel());
+                i++;
+                menuPlg();
+            }else{
+                i++;
+             }
+            }
+    }
+    public void tampilTw(){
+        int i=0;
+        while(i<tw.length){
+            if(tw[i]!=null){
+                System.out.println("Nama Tempat : "+tw[i].getNamaWisata());
+                System.out.println("Alamat : "+tw[i].getAlamatWisata());
+                System.out.println("no Contact : "+tw[i].getCp_wisata());
+                System.out.println("Nama CP : "+tw[i].getNama_cp());
+                i++;
+            }
+            else i++;
+        }
+    }
+    public void tampilPw(){
+        int i=0;
+        int j=0;
+        while(i<pw.length){
+            if(pw[i]!=null){
+                System.out.println("Kode Paket : "+pw[i].getKodePaket());
+                System.out.println("Harga : "+pw[i].getHarga());
+                System.out.println("Tujuan : ");
+                for (int k = 0; k <pw[i].getJumlahWisata(); k++) {
+                    System.out.println("    1."+pw[i].getTempatWisata(k).getNamaWisata());
+                    
+                }
+                
+                i++;
+            }
+            else i++;
+        }
+    }
+       
     public void main() {  
           //Menu Utama 
         
@@ -76,8 +392,7 @@ public class TubesKlompok1 {
                 break;
         }
     }
-        
-        
+              
     public void menuPtg(){    
         System.out.println("Petugas :");
         System.out.println("1.Tambah");
@@ -89,82 +404,16 @@ public class TubesKlompok1 {
         int menuPtg=input.nextInt();
         switch(menuPtg){
             case 1:
-                System.out.println("=== Tambah Petugas ===");
-                System.out.print("Nama : ");
-                Scanner inputnm = new Scanner(System.in);
-                String nm=inputnm.next();
-                System.out.print("Alamat : ");
-                Scanner inputalm = new Scanner(System.in);
-                String alm=inputalm.next();
-                System.out.print("Umur : ");
-                Scanner inputumur = new Scanner(System.in);
-                int umur=inputumur.nextByte();
-                System.out.print("ID : ");
-                Scanner inputid = new Scanner(System.in);
-                long id=inputid.nextByte();
-                System.out.print("Nomor HP : ");
-                Scanner inputhp = new Scanner(System.in);
-                String hp=inputhp.next();
-                System.out.print("Jenis Kelamin : ");
-                Scanner inputjenkel = new Scanner(System.in);
-                String jenkel=inputjenkel.next();
-                System.out.print("Jabatan : " );
-                Scanner inputjbt = new Scanner(System.in);
-                String jbt=inputjbt.next();
-                System.out.println("Tambah Petugas berhasil");
-                pet[a] = new Petugas();
-                try{
-                    pet[a].setNama(nm);
-                    pet[a].setUmur(umur);
-                    pet[a].setAlamat(alm);
-                    pet[a].setId(id);
-                    pet[a].setNo_hp(hp);
-                    pet[a].setJenkel(jenkel);
-                    pet[a].setJabatan(jbt);
-                    a++;
-                    menuPtg();
-                }catch (Exception e){
-                    System.out.println("Error "+e);
-                    menuPtg();
-                }
+                tambahPtg();
                 break;
             case 2:
-                System.out.print("ID : ");
-                Scanner cariid1 = new Scanner(System.in);
-                long id2=cariid1.nextByte();
-                for(int i=0;i<pet.length;i++){
-                    if(pet[i].getId() == id2){
-                        pet[i] = null;
-                    }
-                }
-                System.out.println("Hapus Berhasil!");
+                hapusPtg();
                 break;
             case 3:
-                int i = 0;
-                while(i<pet.length){
-                    if(pet[i] != null){
-                        System.out.println("Nama : "+pet[i].getNama());
-                        System.out.println("Alamat : "+pet[i].getAlamat());
-                        System.out.println("Umur : "+pet[i].getUmur());
-                        System.out.println("ID : "+pet[i].getId());
-                        System.out.println("Nomor HP : "+pet[i].getNo_hp());
-                        System.out.println("Jenis Kelamin : "+pet[i].getJenkel());
-                        System.out.println("Jabatan : "+pet[i].getJabatan());
-                        i++;
-                    }else{
-                        i++;
-                    }
-                }
+                tampilPtg();
                 break;
             case 4:
-                System.out.print("ID : ");
-                Scanner cariid = new Scanner(System.in);
-                long id1=cariid.nextByte();
-                if(searchIdPetugas(id1) != 0){
-                    System.out.println("Data ketemu!");
-                }else{
-                    System.out.println("Data tidak ada!");
-                }
+                searchIdPtg();
                 break;
             case 5:
                 main();
@@ -174,8 +423,7 @@ public class TubesKlompok1 {
                 break;
         }
     }    
-        
-        
+           
     public void menuPlg(){    
         System.out.println("Pelanggan :");
         System.out.println("1.Tambah");
@@ -188,77 +436,16 @@ public class TubesKlompok1 {
         
          switch(menuPlg){
             case 1:
-                System.out.println("=== Tambah Pelanggan ===");
-                System.out.println("Nama: ");
-                Scanner inputnmpel = new Scanner(System.in);
-                String nmpel = inputnmpel.next();
-                System.out.print("Alamat : ");
-                Scanner inputalmpel = new Scanner(System.in);
-                String almpel = inputalmpel.next();
-                System.out.print("Umur : ");
-                Scanner inputumurpel = new Scanner(System.in);
-                int umurpel = inputumurpel.nextByte();
-                System.out.print("ID Pelanggan : ");
-                Scanner inputidpel = new Scanner(System.in);
-                long idpel = inputidpel.nextByte();
-                System.out.print("Nomor HP : ");
-                Scanner inputhppel = new Scanner(System.in);
-                String hppel = inputhppel.next();
-                System.out.print("Jenis Kelamin : ");
-                Scanner inputjenkelpel = new Scanner(System.in);
-                String jenkelpel = inputjenkelpel.next();
-                pel[b] = new Pelanggan();
-                try{
-                    pel[b].setNama(nmpel);
-                    pet[a].setUmur(umurpel);
-                    pet[a].setAlamat(almpel);
-                    pet[a].setId(idpel);
-                    pet[a].setNo_hp(hppel);
-                    pet[a].setJenkel(jenkelpel);
-                    b++;
-                    menuPlg();
-                }catch (Exception e){
-                    System.out.println("Error "+e);
-                    menuPlg();
-                }
+                tambahPlg();
                 break;
             case 2:
-                System.out.print("ID Pelanggan : ");
-                Scanner cariidpel = new Scanner(System.in);
-                String idpel1=cariidpel.next();
-                for(int i=0;i<pel.length;i++){
-                    if(pel[i].getId_pel() == idpel1){
-                        pel[i] = null;
-                    }
-                }
-                System.out.println("Hapus Berhasil!");
+                hapusPlg();
                 break;
             case 3:
-                int i = 0;
-                while(i<pel.length){
-                    if(pel[i] != null){
-                        System.out.println("Nama : "+pel[i].getNama());
-                        System.out.println("Alamat : "+pel[i].getAlamat());
-                        System.out.println("Umur : "+pel[i].getUmur());
-                        System.out.println("ID Pelanggan: "+pel[i].getId_pel());
-                        System.out.println("Nomor HP : "+pel[i].getNo_hp());
-                        System.out.println("Jenis Kelamin : "+pel[i].getJenkel());
-                        i++;
-                    }else{
-                        i++;
-                    }
-                }
+                tampilPlg();
                 break;
             case 4:
-                System.out.println("ID Pelanggan : ");
-                Scanner inputidpel1 = new Scanner(System.in);
-                String idpel2 = inputidpel1.next();
-                searchIdPelanggan(idpel2);
-                if(searchIdPelanggan(idpel2) != " "){
-                    System.out.println("Data ketemu!");
-                }else{
-                    System.out.println("Data tidak ada!");
-                }
+                searchIdPlg();
                 break;
             case 5:
                 main();
@@ -282,12 +469,16 @@ public class TubesKlompok1 {
         
          switch(menuTW){
             case 1:
+                tambahTW();
                 break;
             case 2:
+                hapusTw();
                 break;
             case 3:
+                tampilTw();
                 break;
             case 4:
+                searchTw();
                 break;
             case 5:
                 main();
@@ -302,23 +493,33 @@ public class TubesKlompok1 {
     public void menuPW(){      //PaketWIsata
         System.out.println("Paket WIsata :");
         System.out.println("1.Tambah");
-        System.out.println("2.Hapus");
-        System.out.println("3.Tampilkan");
-        System.out.println("4.Cari");
-        System.out.println("5.Kembali ke menu awal");
+        System.out.println("2.Tambah Tempat Wisata");
+        System.out.println("3.Hapus Paket Wisata");
+        System.out.println("4.Hapus Tempat Wisata");
+        System.out.println("5.Tampilkan");
+        System.out.println("6.Cari");
+        System.out.println("7.Kembali ke menu awal");
         System.out.print("Masukan Input : ");
         int menuPW=input.nextInt();
         
          switch(menuPW){
             case 1:
+                tambahPw();
                 break;
             case 2:
+                tambahTwPw();
                 break;
             case 3:
+                hapusPw();
                 break;
             case 4:
                 break;
             case 5:
+                tampilPw();
+                break;
+            case 6:
+                break;
+            case 7:
                 main();
                 break;
             default:
@@ -356,44 +557,6 @@ public class TubesKlompok1 {
         }
     }    
         
-   /*     Pelanggan p1=new Pelanggan("joko","Laki","Bandung",12,"85745987889","Pel001");
-        Pelanggan p2=new Pelanggan("joki","cabe","Bandung",9,"85734587889","Pel002");
-        Pelanggan p3=new Pelanggan("susanti","cabe","Bandung",10,"85886987889","Pel003");
-        
-        Petugas pt = new Petugas("Udin", "L", "Bandung", 24, "087774878528",00001, "Admin");
-        
-        tempatWisata ancol=new tempatWisata("Anchore","Jakarteh","85475845875","Agus");
-        tempatWisata monas=new tempatWisata("Moon Hass","Jakarteh","854746645875","Tejo");
-        tempatWisata TMII=new tempatWisata("Taman Mini","Jakarteh","85475665875","Joni");
-        
-        paketWisata paketJkt= new paketWisata("jkt48",1500000);
-        
-        paketJkt.addTempatWisata(ancol);
-        paketJkt.addTempatWisata(monas);
-        paketJkt.addTempatWisata(TMII);
-        
-        paketJkt.removeTempatWisata(monas);
-        System.out.println(paketJkt.getJumlahWisata());
-        paketJkt.addTempatWisata(ancol);
-        paketJkt.addTempatWisata(monas);
-        ancol.printWisata(paketJkt);
-        
-        Perjalanan jalan1=new Perjalanan("per001",5);
-        
-        jalan1.addPelanggan(p1);
-        jalan1.addPelanggan(p2);
-        jalan1.addPelanggan(p3);
-        
-        jalan1.setPaket(paketJkt);
-        
-        p1.printPelanggan(jalan1);
-        jalan1.removePaket();
-        System.out.println("Paket :");
-        if(jalan1.getPaket()!=null){
-            System.out.println(jalan1.getPaket().getKodePaket());
-        }else{
-            System.out.println("Kosong");
-        }
-    }*/
+   
     
 }

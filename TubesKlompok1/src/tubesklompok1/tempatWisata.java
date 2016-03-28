@@ -43,8 +43,8 @@ public class tempatWisata {
     public void setNama_cp(String nama_cp){
        this.nama_cp = nama_cp;
     }
-    public String getCp_wsata(){
-       return cp_wisata;
+    public String getNama_cp(){
+       return nama_cp;
     }
     public void printWisata(paketWisata paket){
         int i = 0;
