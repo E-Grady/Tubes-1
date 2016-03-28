@@ -20,10 +20,12 @@ public class TubesKlompok1 {
     static int b = 0; //punya pelanggan
     static int c = 0; // punya tempat wisata
     static int d = 0; // punya paket wisata
+    static int q = 0; // punya Perjalanan
     Pelanggan pel[] = new Pelanggan[40];
-    Petugas pet[] = new Petugas[2];
+    Petugas pet[] = new Petugas[5];
     tempatWisata tw[]= new tempatWisata[10];
     paketWisata pw[]=new paketWisata[10];
+    Perjalanan per[]=new Perjalanan[10];
     public long searchIdPetugas(long id){
         for(int i=0;i<pet.length;i++){
             if(pet[i].getId() == id){
@@ -181,6 +183,33 @@ public class TubesKlompok1 {
             menuPW();
         }
     }
+    public void tambahPer(){
+        int i=0;
+        System.out.println("=== Tambah Perjalanan === ");
+        System.out.println("Kode Perjalanan : ");
+        String kdpj=input.next(); 
+        System.out.println("Tgl Perjalanan : ");
+        String tgl=input.next();
+        System.out.println("Kode Paket Wisata : ");
+        String pkt=input.next();
+        per[q]=new Perjalanan();
+        try {
+            per[q].setKodeperjalanan(kdpj);
+            per[q].setTglperjalanan(tgl);
+            while(i<pw.length){
+                if(pw[i].getKodePaket().equals(pkt)){
+                    per[q].setPaket(pw[i]);
+                }
+                else i++;
+            }
+            q++;
+            menuPW();                
+            
+        } catch (Exception e) {
+            System.out.println("Error "+e);
+            menuPW();
+        }
+    }
     
     public void tambahTwPw(){
         System.out.println("Masukan Kode Paket Wisata :");
@@ -216,6 +245,39 @@ public class TubesKlompok1 {
         }
         
         
+    }
+    public void removeTw(){
+        System.out.println("Masukan Kode Paket Wisata :");
+        String id=input.next();
+        int x = 0;
+        
+        try {
+            while (x<pw.length){
+                if(pw[x].getKodePaket().equals(id)){
+                     
+                    System.out.println("Masukan Nama Tempat Wisata :");
+                    String nm=input.next();
+                    int i = 0;
+                    try {
+                        while(i<tw.length){
+                            if (tw[i].getNamaWisata().equals(nm)) {
+                                 pw[x].removeTempatWisata(tw[i]);
+                                 break;
+                    
+                            }
+                            else i++;
+                        }
+                    } catch (Throwable e) {
+                         System.out.println("Kesalahan ! Data tidak ditemukan");
+                     }
+                    menuTW();
+                    break;              
+                } else x++;
+            }
+            
+        } catch (Exception e) {
+            System.out.println(""+e);
+        }
     }
     
     public void searchIdPtg(){
@@ -277,6 +339,28 @@ public class TubesKlompok1 {
             }
         } catch (Throwable e) {
             System.out.println("Kesalahan ! Data tidak ditemukan");
+        }
+    }
+    public void searchPw(){
+        System.out.print("Kode : ");
+        String id1=input.next();
+        int i=0;
+        try{while ( i<pw.length){
+            if(pw[i].getKodePaket().equals(id1)){
+                System.out.println("Kode Paket : "+pw[i].getKodePaket());
+                System.out.println("Harga : "+pw[i].getHarga());
+                System.out.println("Tujuan : ");
+                for (int k = 0; k <pw[i].getJumlahWisata(); k++) {
+                    System.out.println("    -"+pw[i].getTempatWisata(k).getNamaWisata());
+                    
+                }
+                
+                break;
+                
+            }
+            else i++;
+        }}catch(Throwable e){
+            System.out.println("Kesalahan! Data tidak ditemukan");
         }
     }
     
@@ -346,7 +430,7 @@ public class TubesKlompok1 {
                 System.out.println("Harga : "+pw[i].getHarga());
                 System.out.println("Tujuan : ");
                 for (int k = 0; k <pw[i].getJumlahWisata(); k++) {
-                    System.out.println("    1."+pw[i].getTempatWisata(k).getNamaWisata());
+                    System.out.println("    -"+pw[i].getTempatWisata(k).getNamaWisata());
                     
                 }
                 
@@ -408,9 +492,11 @@ public class TubesKlompok1 {
                 break;
             case 2:
                 hapusPtg();
+                menuPtg();
                 break;
             case 3:
                 tampilPtg();
+                menuPtg();
                 break;
             case 4:
                 searchIdPtg();
@@ -511,13 +597,18 @@ public class TubesKlompok1 {
                 break;
             case 3:
                 hapusPw();
+                menuPW();
                 break;
             case 4:
+                removeTw();
+                menuPW();
                 break;
             case 5:
                 tampilPw();
+                menuPW();
                 break;
             case 6:
+                searchPw();
                 break;
             case 7:
                 main();
@@ -541,6 +632,7 @@ public class TubesKlompok1 {
         
          switch(menuPer){
             case 1:
+                tambahPer();
                 break;
             case 2:
                 break;
