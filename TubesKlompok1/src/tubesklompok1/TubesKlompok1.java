@@ -114,14 +114,19 @@ public class TubesKlompok1 {
                 System.out.println("Tambah Petugas berhasil");
                 pet[a] = new Petugas();
                 try{
-                    pet[a].setNama(nm);
-                    pet[a].setUmur(umur);
-                    pet[a].setAlamat(alm);
-                    pet[a].setId(id);
-                    pet[a].setNo_hp(hp);
-                    pet[a].setJenkel(jenkel);
-                    pet[a].setJabatan(jbt);
-                    a++;
+                    while(pet[a] != null){
+                        a++;
+                    }
+                    if(pet[a] == null){
+                        pet[a].setNama(nm);
+                        pet[a].setUmur(umur);
+                        pet[a].setAlamat(alm);
+                        pet[a].setId(id);
+                        pet[a].setNo_hp(hp);
+                        pet[a].setJenkel(jenkel);
+                        pet[a].setJabatan(jbt);
+                        a++;
+                    }
                     menuPtg();
                 }catch (Exception e){
                     System.out.println("Error "+e);
@@ -200,7 +205,7 @@ public class TubesKlompok1 {
                 int umurpel = inputumurpel.nextByte();
                 System.out.print("ID Pelanggan : ");
                 Scanner inputidpel = new Scanner(System.in);
-                long idpel = inputidpel.nextByte();
+                String idpel = inputidpel.next();
                 System.out.print("Nomor HP : ");
                 Scanner inputhppel = new Scanner(System.in);
                 String hppel = inputhppel.next();
@@ -209,13 +214,18 @@ public class TubesKlompok1 {
                 String jenkelpel = inputjenkelpel.next();
                 pel[b] = new Pelanggan();
                 try{
-                    pel[b].setNama(nmpel);
-                    pet[a].setUmur(umurpel);
-                    pet[a].setAlamat(almpel);
-                    pet[a].setId(idpel);
-                    pet[a].setNo_hp(hppel);
-                    pet[a].setJenkel(jenkelpel);
-                    b++;
+                    while(pel[b] != null){
+                        b++;
+                    }
+                    if(pel[b] == null){
+                        pel[b].setNama(nmpel);
+                        pel[b].setUmur(umurpel);
+                        pel[b].setAlamat(almpel);
+                        pel[b].setId_pel(idpel);
+                        pel[b].setNo_hp(hppel);
+                        pel[b].setJenkel(jenkelpel);
+                        b++;
+                    }
                     menuPlg();
                 }catch (Exception e){
                     System.out.println("Error "+e);
@@ -282,6 +292,7 @@ public class TubesKlompok1 {
         
          switch(menuTW){
             case 1:
+                
                 break;
             case 2:
                 break;
