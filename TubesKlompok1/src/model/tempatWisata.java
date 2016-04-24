@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tubesklompok1;
+package model;
 
 /**
  *
@@ -14,6 +14,7 @@ public class tempatWisata {
     private String alamatWisata;
     private String cp_wisata;
     private String nama_cp;
+    private String kode_paket;
    
     public tempatWisata(){}
     public tempatWisata(String namaWisata,String alamatWisata,String nama_cp,String cp_wisata){
@@ -21,6 +22,16 @@ public class tempatWisata {
        this.alamatWisata = alamatWisata;
        this.cp_wisata = cp_wisata;
        this.nama_cp = nama_cp;
+    }
+    public tempatWisata(String namaWisata, String alamatWisata, String nama_cp,String cp_wisata, String kode_paket) {
+        this.namaWisata = namaWisata;
+        this.alamatWisata = alamatWisata;
+        this.cp_wisata = cp_wisata;
+        this.nama_cp = nama_cp;
+        this.kode_paket = kode_paket;
+    }
+    public void setKode_paket(String kode_paket) {
+        this.kode_paket = kode_paket;
     }
     public void setNamaWisata(String namaWisata){
        this.namaWisata = namaWisata;
@@ -30,6 +41,9 @@ public class tempatWisata {
     }
     public void setAlamatWisata(String alamatWisata){
        this.alamatWisata = alamatWisata;
+    }
+    public String getKode_paket() {
+        return kode_paket;
     }
     public String getAlamatWisata(){
        return alamatWisata;

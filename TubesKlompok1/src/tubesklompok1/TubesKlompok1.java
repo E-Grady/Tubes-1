@@ -26,18 +26,18 @@ public class TubesKlompok1 {
     tempatWisata tw[]= new tempatWisata[10];
     paketWisata pw[]=new paketWisata[10];
     Perjalanan per[]=new Perjalanan[10];
-    public long searchIdPetugas(long id){
+    public String searchIdPetugas(String id){
         for(int i=0;i<pet.length;i++){
             if(pet[i].getId() == id){
                 return pet[i].getId();
             } 
         }
-        return 0;
+        return null;
     }
     
     public void hapusPtg(){
          System.out.print("ID : ");
-                long id2=input.nextByte();
+                String id2=input.next();
                 for(int i=0;i<pet.length;i++){
                     if(pet[i].getId() == id2){
                         pet[i] = null;
@@ -88,7 +88,7 @@ public class TubesKlompok1 {
                 System.out.print("Umur : ");
                 int umur=input.nextByte();
                 System.out.print("ID : ");
-                long id=input.nextByte();
+                String id=input.next();
                 System.out.print("Nomor HP : ");
                 String hp=input.next();
                 System.out.print("Jenis Kelamin : ");
@@ -293,7 +293,7 @@ public class TubesKlompok1 {
     
     public void searchIdPtg(){
         System.out.print("ID : ");
-        long id1=input.nextByte();
+        String id1=input.next();
         int i=0;
         try{while ( i<pet.length){
             if(pet[i].getId()==id1){
@@ -531,7 +531,7 @@ public class TubesKlompok1 {
                 int umur=inputumur.nextByte();
                 System.out.print("ID : ");
                 Scanner inputid = new Scanner(System.in);
-                long id=inputid.nextByte();
+                String id=inputid.next();
                 System.out.print("Nomor HP : ");
                 Scanner inputhp = new Scanner(System.in);
                 String hp=inputhp.next();
